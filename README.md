@@ -37,3 +37,24 @@ stepCounter.resetSteps();
 
 
 ```
+
+##Here's what you need to do for both platforms:
+
+##Android (AndroidManifest.xml):
+
+    Open the android/app/src/main/AndroidManifest.xml file in your Flutter project.
+    To request access to the accelerometer sensor, add the following line within the <manifest> element
+
+    ```xml
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+```
+
+Open the ios/Runner/Info.plist file in your Flutter project.
+
+To access the accelerometer, you don't need to specify a permission. However, you should include a description of why you need this data. Add the following key-value pair within the <dict> element:
+
+```xml
+<key>NSMotionUsageDescription</key>
+<string>We need access to the accelerometer for step counting.</string>
+
+```
