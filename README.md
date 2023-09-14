@@ -30,8 +30,7 @@ To access the accelerometer, you don't need to specify a permission. However, yo
 
 ```xml
 <key>NSMotionUsageDescription</key>
-<string>We need access to the accelerometer for step counting.</string>
-
+<string>The app needs to access the accelerometer to count your steps.</string>
 ```
 
 ## Usage
