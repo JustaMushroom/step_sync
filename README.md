@@ -29,8 +29,8 @@ final stepCounter = StepCounter();
 ```dart
 final currentSteps = stepCounter.steps; 
 ```
+4. To Reset Steps use resetSteps method provided by StepCounter Class
 ```dart
-//Reset Steps
 stepCounter.resetSteps();
 
 
