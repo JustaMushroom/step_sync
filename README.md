@@ -19,9 +19,17 @@ Once you have Step Sync installed in your project, you can use it to track and r
 
 ```dart
 import 'package:step_sync/step_sync.dart';
-final stepCounter = StepCounter();
-final currentSteps = stepCounter.steps; 
+```
+2.Create Instance of Our Class Called StepCounter
 
+```dart
+final stepCounter = StepCounter();
+```
+3.Access Steps Directly using .steps property
+```dart
+final currentSteps = stepCounter.steps; 
+```
+```dart
 //Reset Steps
 stepCounter.resetSteps();
 
