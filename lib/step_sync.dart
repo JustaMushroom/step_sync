@@ -1,6 +1,8 @@
+import 'dart:ui';
 import 'package:vector_math/vector_math.dart'; 
 import 'package:sensors_plus/sensors_plus.dart'; 
-
+import 'package:flutter_background_service/flutter_background_service.dart'; 
+import 'dart:async'; 
 
 class StepCounter{
 
@@ -11,7 +13,7 @@ class StepCounter{
   double threshold = 10.00; 
 
   StepCounter(){
-    updateSteps(); 
+    initializeService(); 
   }
 
   void updateSteps() {
@@ -37,4 +39,25 @@ class StepCounter{
   void resetSteps(){
     steps=0;
   }
+
+  Future<void> initializeService() async {
+  final service = FlutterBackgroundService();
+  service.configure(
+    androidConfiguration: AndroidConfiguration(onStart: stepService, isForegroundMode: true),
+    iosConfiguration: IosConfiguration(onForeground:stepService, onBackground: (service) {
+      updateSteps();
+      return true; 
+    }, )
+  );
+
+  service.startService(); 
+}
+
+Future<void> stepService(ServiceInstance service) async{
+  DartPluginRegistrant.ensureInitialized();
+  Timer.periodic(const Duration(seconds: 1), (timer) { 
+    updateSteps();
+  });
+
+}
 }
