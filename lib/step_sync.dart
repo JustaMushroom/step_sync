@@ -10,10 +10,11 @@ class StepCounter{
   /*The threshold value is used to control the sensitivity of step detection or event detection in sensor data processing.
    By setting an appropriate threshold, you can avoid detecting false positives (e.g., small jitters or noise) as steps and ensure
    that only significant changes in acceleration are counted as steps. */
-  double threshold = 10.00; 
+  double threshold = 10.00;
+  bool autofetch = true; 
 
   StepCounter(){
-    initializeService(); 
+    autofetch ? initializeService() : updateSteps(); 
   }
 
   void updateSteps() {
@@ -61,3 +62,5 @@ Future<void> stepService(ServiceInstance service) async{
 
 }
 }
+
+
