@@ -8,7 +8,7 @@ To use Step Sync in your Flutter project, add the following line to your `pubspe
 
 ```yaml
 dependencies:
-  step_sync: ^1.0.0  # Use the latest version
+  step_sync: ^2.0.3  # Use the latest version
 ```
 
 
