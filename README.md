@@ -52,7 +52,9 @@ final stepCounter = StepCounter();
 final currentSteps = stepCounter.steps; 
 ```
 
-4.```dart
+4.Listen to step updates using StreamBuilder:
+
+```dart
 StreamBuilder<int>(
   stream: stepCounter.stepStream,
   builder: (context, snapshot) {
@@ -73,7 +75,8 @@ StreamBuilder<int>(
 stepCounter.resetSteps();
 ```
 
-6.Example User Interface```dart
+6.Example User Interface
+```dart
 import 'package:flutter/material.dart';
 import 'package:step_sync/step_sync.dart'; // Import your package
 
