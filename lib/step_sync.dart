@@ -33,7 +33,7 @@ class StepCounter{
       final magnitude = acceleration.length;
 
       // We only want to increment the step counter when we spike above the threshold for the first time
-      // So we'll prevent the steps from being implemented if we haven't gone below the threshold
+      // So we'll prevent the steps from being incremented if we haven't gone below the threshold
       // (this will probably result in more false-negatives but it'll *probably* be more accurate)
       if (magnitude < threshold) {
         aboveThreshold = false;
