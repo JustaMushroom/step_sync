@@ -36,7 +36,7 @@ class StepCounter{
       // So we'll prevent the steps from being implemented if we haven't gone below the threshold
       // (this will probably result in more false-negatives but it'll *probably* be more accurate)
       if (magnitude < threshold) {
-          aboveThreshold = false;
+        aboveThreshold = false;
       }
 
       if(magnitude > threshold && !aboveThreshold){
