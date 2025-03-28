@@ -22,15 +22,15 @@ class StepCounter{
    userAccelerometerEvents.listen((UserAccelerometerEvent event) {
 
     
-      double  x = event.x; 
-      double  y = event.y; 
-      double  z = event.z; 
-      final acceleration =  Vector3(x,y,z);
+      double x = event.x;
+      double y = event.y;
+      double z = event.z;
+      final acceleration = Vector3(x,y,z);
       /*Getting magnitude value which is The magnitude of acceleration is like the "size" or "intensity" of the acceleration
        in three-dimensional space, considering the acceleration along the x, y, and z coordinates (axes). */
       //Not too good at maths or these stuff so well i am not as well so just had a look to google to understand basics 
       //And aim of us just code to get StepCount and also reset daily by method.
-      final magnitude = acceleration.length; 
+      final magnitude = acceleration.length;
 
       // We only want to increment the step counter when we spike above the threshold for the first time
       // So we'll prevent the steps from being implemented if we haven't gone below the threshold
@@ -40,7 +40,7 @@ class StepCounter{
       }
 
       if(magnitude > threshold && !aboveThreshold){
-        steps++; 
+        steps++;
         aboveThreshold = true;
       }
 
