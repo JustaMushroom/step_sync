@@ -19,7 +19,7 @@ class StepCounter{
   }
 
   void updateSteps() {
-   accelerometerEvents.listen((AccelerometerEvent event) {
+   userAccelerometerEvents.listen((UserAccelerometerEvent event) {
 
     
       double  x = event.x; 
