@@ -12,6 +12,7 @@ class StepCounter{
    that only significant changes in acceleration are counted as steps. */
   double threshold = 10.00;
   bool autofetch = true; 
+  bool aboveThreshold = false;
 
   StepCounter(){
     autofetch ? initializeService() : updateSteps(); 
@@ -30,8 +31,17 @@ class StepCounter{
       //Not too good at maths or these stuff so well i am not as well so just had a look to google to understand basics 
       //And aim of us just code to get StepCount and also reset daily by method.
       final magnitude = acceleration.length; 
-      if(magnitude > threshold){
+
+      // We only want to increment the step counter when we spike above the threshold for the first time
+      // So we'll prevent the steps from being implemented if we haven't gone below the threshold
+      // (this will probably result in more false-negatives but it'll *probably* be more accurate)
+      if (magnitude < threshold) {
+          aboveThreshold = false;
+      }
+
+      if(magnitude > threshold && !aboveThreshold){
         steps++; 
+        aboveThreshold = true;
       }
 
    },);
